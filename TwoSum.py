@@ -10,7 +10,7 @@ def addUp (nums, target):
             return [checkedVal[remain], index]
         checkedVal[val] = index
 
-#Testing
+#Test cases
 arr1 = [2, 7, 11, 15]
 target = 9
 print("indexes: ", addUp(arr1, target))

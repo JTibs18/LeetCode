@@ -14,7 +14,7 @@ def revString(s):
 #Note: Leetcode prefers s.reverse() with no return statement
 
 
-#test cases
+#Test cases
 s = ["h","e","l","l","o"]
 print(revString(s))
 
