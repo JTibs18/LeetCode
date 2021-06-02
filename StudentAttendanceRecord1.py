@@ -31,8 +31,6 @@ def attendance(s):
                 return False
     return True
 
-
-
 #Test cases
 s = "PPALLP"
 print(attendance(s))
