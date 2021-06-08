@@ -1,14 +1,6 @@
 # Merge two sorted linked lists and return it as a sorted list.
 # The list should be made by splicing together the nodes of the first two lists.
 
-
-
-
-#loop through one list
-#Compare first element in each list
-#If element in list1 >= list2 continue looping
-#otherwise add element from list2 after element in list1 and increase comparison pointer to next element in list2
-
 class ListNode:
     def __init__(self, val):
         self.val = val
