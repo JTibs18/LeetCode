@@ -36,7 +36,6 @@ class MyLinkedList(object):
         else:
             return -1
 
-
     def addAtHead(self, val):
         newNode = Node(val)
         if (self.head):
