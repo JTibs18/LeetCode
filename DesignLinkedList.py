@@ -21,7 +21,6 @@ class MyLinkedList(object):
     def __init__(self):
         self.head = None
 
-
     def get(self, index):
         if (self.head):
             count = 0
@@ -45,7 +44,6 @@ class MyLinkedList(object):
             self.head = newNode
         else:
             self.head = newNode
-
 
     def addAtTail(self, val):
         newNode = Node(val)
