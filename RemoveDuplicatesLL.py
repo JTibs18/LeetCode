@@ -1,4 +1,4 @@
-# Given the head of a linked list, remove the nth node from the end of the list and return its head.
+# Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -6,7 +6,7 @@ class ListNode:
         self.next = next
 
 class MyLinkedList(object):
-    
+
     def __init__(self):
         self.head = None
 
@@ -90,45 +90,35 @@ class MyLinkedList(object):
                         else:
                             return
 
-def removeFromEnd(head, n):
+def removeDups(head):
     cur = head
-    count = 0
-    while (cur.next):
-        count += 1
-        cur = cur.next
-    removeNode = count - n
-    if (count == 0 and n == 1):
-        return None
-    else:
-        cur = head
-    if n == count + 1:
-        head = cur.next
-        return head
-    else:
-        for num in range(removeNode):
+    nums = set()
+    if head != None:
+        nums.add(head.val)
+        prev = cur
+        while(cur.next):
             cur = cur.next
-        cur.next = cur.next.next
-        return head
+            if (cur.val not in nums):
+                nums.add(cur.val)
+                prev = cur
+            else:
+                prev.next = cur.next
+    return head
 
 #Test cases
 headL = MyLinkedList()
 headL.addAtHead(1)
+headL.addAtTail(1)
+headL.addAtTail(2)
+x = removeDups(headL.head)
+print(x.val, x.next.val)
+
+
+headL = MyLinkedList()
+headL.addAtHead(1)
+headL.addAtTail(1)
 headL.addAtTail(2)
 headL.addAtTail(3)
-headL.addAtTail(4)
-headL.addAtTail(5)
-x = removeFromEnd(headL.head, 2)
-print(x.val, x.next.val, x.next.next.val, x.next.next.next.val)
-
-
-headL = MyLinkedList()
-headL.addAtHead(1)
-x = removeFromEnd(headL.head, 1)
-print(x)
-
-
-headL = MyLinkedList()
-headL.addAtHead(1)
-headL.addAtTail(2)
-x = removeFromEnd(headL.head, 2)
-print(x.val)
+headL.addAtTail(3)
+x = removeDups(headL.head)
+print(x.val, x.next.val, x.next.next.val)
