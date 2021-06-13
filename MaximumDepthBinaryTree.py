@@ -18,13 +18,6 @@ def maxDepth(root):
         else:
             return leftDepth
 
-#smallest input: just root is given. no child nodes (depth = 0)
-#Base Case: if root is None return 0
-
-#Recursive case: if the current node has a left or right child, call maxDepth on child nodes
-
-#need a counter for every node in depth that is found.
-
 #Test cases
 r = TreeNode(3)
 node1 = TreeNode(9)
@@ -36,7 +29,6 @@ r.right = node2
 node2.right = node4
 node2.left = node3
 print(maxDepth(r))
-
 
 r1 = TreeNode(1)
 node1 = TreeNode(2)
