@@ -1,0 +1,9 @@
+
+
+
+
+
+
+
+
+def getIntersectionNumber(headA, headB): 
