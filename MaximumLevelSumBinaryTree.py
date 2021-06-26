@@ -15,11 +15,14 @@ def maxLevelSum(root):
     smallestLev = 1
     q.append([root, 1])
 
+    #looping through queue
     while(len(q) > 0):
+        #info on the current node
         cur = q.pop(0)
         node = cur[0]
         l = cur[1]
-        
+
+        #summing values of nodes on same level
         if prevLev == l:
             levCount += node.val
         else:
@@ -29,14 +32,15 @@ def maxLevelSum(root):
             levCount = node.val
             prevLev = l
 
+        #adding child nodes to queue
         if node.right != None:
             q.append([node.right, l + 1])
         if node.left != None:
             q.append([node.left, l + 1])
 
+    #checking if the sum of the level is the largest sum and returning its level
     if levCount > largestCount:
         smallestLev = prevLev
-        largestCount = levCount
     return smallestLev
 
 #Test cases
