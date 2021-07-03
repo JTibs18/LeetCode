@@ -13,7 +13,7 @@ def swapPairs(head):
     p1 = head
     if head == None:
         return None
-    else: 
+    else:
         p1 = head
         p2 = head.next
 
@@ -24,7 +24,7 @@ def swapPairs(head):
     else:
         return head
 
-    while p1.next != None and p2 != None:
+    while p1.next != None:
         prev = p1
         p2 = p1.next.next
         p1 = p1.next
