@@ -6,44 +6,44 @@
 # The bookstore owner knows a secret technique to keep themselves not grumpy for minutes minutes straight, but can only use it once.
 # Return the maximum number of customers that can be satisfied throughout the day.
 
-# Example 1:
-# Input: customers = [1,0,1,2,1,1,7,5], grumpy = [0,1,0,1,0,1,0,1], minutes = 3
-# Output: 16
-# Explanation: The bookstore owner keeps themselves not grumpy for the last 3 minutes.
-# The maximum number of customers that can be satisfied = 1 + 1 + 1 + 1 + 7 + 5 = 16.
+def maxSatisfied(customers, grumpy, minutes):
+    maxHappy = 0
+    happyCount = 0
 
+    for indx, val in enumerate(grumpy):
+        if val == 0:
+            happyCount += customers[indx]
+    minHappy = happyCount
+    happyCount = 0
 
-#PROBLEM: TOO SLOW WITH NESTED LOOP
+    for val in range(minutes):
+        if grumpy[val] == 1:
+            happyCount += customers[val]
 
-def gBookOwner(customers, grumpy, minutes):
-    # wSum = sum(customers)
-    happy = 0
-    # maxHappy = 0
-    addDiff = 0
-    for index, value in enumerate(customers):
-        # happyMins = 0
-        diff = 0
-        if (grumpy[index] == 0):
-            happy = happy + value
-        for i in range(minutes):
-            if (index <= len(customers) - minutes):
-                if (grumpy[index + i] != 0):
-                    diff = diff + customers[index + i]
-                # happyMins = happyMins + customers[index + i]
-        if (diff > addDiff):
-            # maxHappy = happyMins
-            addDiff = diff
-    happy = happy + addDiff
-    return happy
+    if happyCount + minHappy > maxHappy:
+        maxHappy = happyCount + minHappy
 
+    p1 = 0
+    p2 = minutes
+
+    while p2 < len(customers):
+        if grumpy[p1] == 1:
+            happyCount -= customers[p1]
+        p1 += 1
+        if grumpy[p2] == 1:
+            happyCount += customers[p2]
+        p2 += 1
+        if happyCount + minHappy > maxHappy:
+            maxHappy = happyCount + minHappy
+    return maxHappy
 
 #Test casses
 customers =  [1,0,1,2,1,1,7,5]
 grumpy = [0,1,0,1,0,1,0,1]
 minutes = 3
-print(gBookOwner(customers, grumpy, minutes))
+print(maxSatisfied(customers, grumpy, minutes))
 
 customers =  [4, 10, 10]
 grumpy = [1, 1, 0]
 minutes = 2
-print(gBookOwner(customers, grumpy, minutes))
+print(maxSatisfied(customers, grumpy, minutes))
