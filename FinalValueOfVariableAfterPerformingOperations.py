@@ -15,7 +15,6 @@ def finalValueAfterOperations(operations):
 
     return x
 
-
 #Test Cases
 operations = ["--X","X++","X++"]
 print(finalValueAfterOperations(operations))
