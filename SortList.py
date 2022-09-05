@@ -7,7 +7,7 @@ class ListNode(object):
         self.val = val
         self.next = next
 
-#ALGORITHM IS TOO SLOW 
+#ALGORITHM IS TOO SLOW
 
 def sortList(head):
     if head == None or head.next == None:

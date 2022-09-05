@@ -8,7 +8,7 @@ def removeCoveredIntervals(intervals):
     for i in intervals:
         s.add((i[0], i[1]))
 
-    # for i in intervals: 
+    # for i in intervals:
     #     if i[0]
 
     return len(s)
