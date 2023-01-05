@@ -11,7 +11,7 @@ def merge(intervals):
         else: 
             newIntervals.append(i)
     
-    return(newIntervals)
+    return newIntervals
 
 # Test cases 
 intervals = [[1,3],[2,6],[8,10],[15,18]]
