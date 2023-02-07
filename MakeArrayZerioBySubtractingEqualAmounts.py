@@ -20,7 +20,6 @@ def minimumOperations(nums):
     
     return operationCount
         
-
 # Test cases
 nums = [1,5,0,3,5]
 print(minimumOperations(nums))
