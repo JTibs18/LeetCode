@@ -12,8 +12,7 @@ function strStr(haystack, needle){
         ptr2 += 1 
     }
     return -1 
-
-  };
+};
 
 // Test cases 
 haystack = "sadbutsad"
