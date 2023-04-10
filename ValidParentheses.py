@@ -5,7 +5,7 @@
 
 def isValid(s):
     stack = []
-    for index, value in enumerate(s):
+    for value in s:
         if len(stack) == 0:
             stack.append(value)
         elif value == ")":
