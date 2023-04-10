@@ -6,23 +6,16 @@
 def isValid(s):
     stack = []
     for value in s:
-        if len(stack) == 0:
+        if len(stack) == 0 or value in "({[":
             stack.append(value)
-        elif value == ")":
-            if stack.pop() != "(":
-                return False
-        elif value == "]":
-             if stack.pop() != "[":
-                 return False
-        elif value == "}":
-            if stack.pop() != "{":
-                return False
-        else:
-            stack.append(value)
+        elif (value == ")" and stack[len(stack) - 1] != "(") or (value == "]" and stack[len(stack) - 1] != "[") or (value == "}" and stack[len(stack) - 1] != "{"): 
+            return False
+        else: 
+            stack.pop()
+            
     if len(stack) > 0:
         return False
-    else:
-        return True
+    return True
 
 #Test cases
 s = "()"
