@@ -12,8 +12,7 @@ def validateStackSequences (pushed, popped):
 
     if len(curStack) == 0 and poppedIndx == len(popped):
         return True
-    else:
-        return False
+    return False
 
 #Test cases
 pushed = [1, 2, 3, 4, 5]
