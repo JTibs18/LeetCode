@@ -1,6 +1,7 @@
 -- Write an SQL query to find all dates' Id with higher temperatures compared to its previous dates (yesterday).
 -- Return the result table in any order.
 -- Query (Works with RisingTemperatureSchema.sql and RisingTemperature.db)
+-- With help from Phind: https://www.phind.com/search?cache=e352ac64-bd83-4800-861c-6d8330ac167b
 
 -- MySQL
 SELECT w1.id 
