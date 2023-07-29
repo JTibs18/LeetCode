@@ -7,22 +7,21 @@ def rotate(nums, k):
     count = len(nums) - 1
 
     while count: 
-        nextIndex = ptr1 + k 
+        ptr1 += k 
 
-        if nextIndex >= len(nums): 
-            nextIndex = nextIndex % len(nums)
+        if ptr1 >= len(nums): 
+            ptr1 = ptr1 % len(nums)
 
-        if nextIndex == ptr2: 
+        if ptr1 == ptr2: 
             ptr2 += 1
             ptr1 = ptr2 
             count -= 1
             continue 
 
         temp = nums[ptr2] 
-        nums[ptr2] = nums[nextIndex]
-        nums[nextIndex] = temp 
+        nums[ptr2] = nums[ptr1]
+        nums[ptr1] = temp 
 
-        ptr1 = nextIndex
         count -= 1
     
     print(nums)
