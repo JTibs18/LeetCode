@@ -19,7 +19,6 @@ def combine(n, k):
     backtrack(n, k, 1, track)
     return result
 
-
 # Test cases
 n = 4
 k = 2
