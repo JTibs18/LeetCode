@@ -1,7 +1,8 @@
 # Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
 # You must write an algorithm that runs in O(n) time.
 
-def longestConsecutive(nums):
+# time is o(n log n)
+def longestConsecutive1(nums):
     nums = list(set(nums))
     nums.sort()
     longestSequence = 0 
@@ -26,6 +27,20 @@ def longestConsecutive(nums):
         longestSequence = sequenceCount
 
     return longestSequence + 1 
+
+# time is o(n) and memory is o(n)
+def longestConsecutive(nums):
+    nums = set(nums)
+    longestSequence = 0 
+
+    for i in nums: 
+        if (i - 1) not in nums:
+            length = 0 
+            while (i + length) in nums: 
+                length += 1 
+            longestSequence = max(length, longestSequence)
+        
+    return longestSequence
 
 # Test cases
 nums = [100,4,200,1,3,2]
