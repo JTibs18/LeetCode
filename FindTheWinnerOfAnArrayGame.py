@@ -3,7 +3,8 @@
 # Return the integer which will win the game.
 # It is guaranteed that there will be a winner of the game.
 
-def getWinner(arr, k):
+# initial attempt with array manipulation, slow but memory efficient 
+def getWinner1(arr, k):
     if k > len(arr): 
         return max(arr)
     
@@ -22,7 +23,22 @@ def getWinner(arr, k):
         
     return arr[0]
 
-# Try this using pointers!
+# using pointers and maintaining a winner, fast but requires more memory 
+def getWinner(arr, k):
+    consecutiveCount = 0 
+    winner = arr[0]
+    ptr = 1
+
+    while consecutiveCount < k and ptr < len(arr):
+        if winner > arr[ptr]:
+            consecutiveCount += 1 
+        else:
+            winner = arr[ptr]
+            consecutiveCount = 1 
+        
+        ptr += 1 
+
+    return winner 
 
 # Test cases
 arr = [2, 1, 3, 5, 4, 6, 7]
@@ -31,4 +47,8 @@ print(getWinner(arr, k))
 
 arr = [3, 2, 1]
 k = 10 
+print(getWinner(arr, k))
+
+arr = [1, 25, 35, 42, 68, 70]
+k = 2
 print(getWinner(arr, k))
