@@ -29,23 +29,39 @@ def findThePrefixCommonArray1(A, B):
     return commonArr
 
 # faster & more space efficient algorithm, works on the assumption that neither A nor B has duplicate numbers 
-def findThePrefixCommonArray(A, B):
-    numCount = set()
+def findThePrefixCommonArray2(A, B):
+    foundNum = set()
     commonArr = []
     count = 0
 
     for indx in range(len(A)):
-        if A[indx] in numCount:
+        if A[indx] in foundNum:
             count += 1 
         else:
-            numCount.add(A[indx])
+            foundNum.add(A[indx])
 
-        if B[indx] in numCount:
+        if B[indx] in foundNum:
             count += 1
         else:
-            numCount.add(B[indx])
+            foundNum.add(B[indx])
         
         commonArr.append(count)
+
+    return commonArr
+
+# faster than naive solution, takes more memory than second solution
+def findThePrefixCommonArray(A, B):
+    foundNum = set()
+    commonArr = []
+
+    for indx in range(len(A)):
+        if A[indx] not in foundNum:
+            foundNum.add(A[indx])
+
+        if B[indx] not in foundNum:
+            foundNum.add(B[indx])
+        
+        commonArr.append((indx * 2) - len(foundNum) + 2)
 
     return commonArr
 
