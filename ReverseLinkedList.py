@@ -15,12 +15,11 @@ def reverseList(head):
     def helper(curNode, newLL):
         if curNode.next:
             newLL = helper(curNode.next, newLL)
-        newNode = ListNode(curNode.val)
-        newLL.next = newNode
-        return newNode
+        newLL.next = ListNode(curNode.val)
+        return newLL.next
     
     helper(head, dummy)
-    return dummy
+    return dummy.next
 
 # Test cases
 head = ListNode(1)
