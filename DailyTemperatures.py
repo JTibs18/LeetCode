@@ -31,7 +31,7 @@ def dailyTemperatures(temperatures):
     stack = []
 
     for indx, val in enumerate(temperatures):
-        while len(stack) and stack[-1][0] < val: 
+        while stack and stack[-1][0] < val: 
             _, i = stack.pop()
             output[i] = indx - i
         
