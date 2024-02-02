@@ -5,7 +5,8 @@
 # Return a 2D array containing all the arrays. If it is impossible to satisfy the conditions, return an empty array. And if there are multiple answers, return any of them.
 # Question 2 for Weekly Contest 376
 
-def divideArray(nums, k):
+# naive solution 
+def divideArray1(nums, k):
     dividedArr = []
     curArray = []
     nums.sort(reverse=True)
@@ -20,6 +21,21 @@ def divideArray(nums, k):
             dividedArr.append(curArray)
             curArray = []
     
+    return dividedArr
+
+# sliding window solution, faster and more memory efficient
+def divideArray(nums, k):
+    dividedArr = []
+    nums.sort()
+    ptr = 0
+
+    while ptr < len(nums):
+        if nums[ptr + 2] - nums[ptr] <= k:
+            dividedArr.append(nums[ptr:ptr + 3])
+            ptr += 3 
+        else:
+            return []
+
     return dividedArr
 
 # Test cases
