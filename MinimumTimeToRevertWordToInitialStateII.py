@@ -7,19 +7,17 @@
 # For Weekly Contest #383, Question 2 and 4
 
 def minimumTimeToInitialState(word, k):
-    count = 1
     indx = k 
 
     while indx < len(word):
-        l = len(word[indx:])
-        
-        if word[indx:] == word[:l]:
+        remainingWord = word[indx:]
+
+        if remainingWord == word[:len(remainingWord)]:
             break 
         
-        count += 1
         indx += k 
     
-    return count
+    return indx // k
 
 # Test cases
 word = "abacaba"
