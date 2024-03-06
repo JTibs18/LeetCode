@@ -2,11 +2,11 @@
 // You may assume that fn will never duplicate numbers for a given array.
 
 type JSONValue1 = boolean | number | string | JSONValue1[] | { [key: string]: JSONValue1 };
-type Fn1 = (value: JSONValue1) => number
+type Fn1 = (value: JSONValue1) => number;
 
 function sortBy(arr: JSONValue1[], fn: Fn1): JSONValue1[] {
-    return arr.sort((a, b) => fn(a) - fn(b)) 
+    return arr.sort((a, b) => fn(a) - fn(b));
 };
 
 // Test case
-console.log(sortBy([5, 4, 1, 2, 3], (x: JSONValue1): number => Number(x)))
+console.log(sortBy([5, 4, 1, 2, 3], (x: JSONValue1): number => Number(x)));
