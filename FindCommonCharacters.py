@@ -26,7 +26,7 @@ def commonChars(words):
     return commonCharacters
 
 # Test cases
-words = ["bella","label","roller"] # NOT WORKING FOR DUPLICATES
+words = ["bella","label","roller"]
 print(commonChars(words))
 
 words = ["cool","lock","cook"]
